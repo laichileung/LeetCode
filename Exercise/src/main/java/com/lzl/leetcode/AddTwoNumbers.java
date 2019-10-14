@@ -40,6 +40,10 @@ public class AddTwoNumbers {
         }
     }
 
+    /**
+     * 时间复杂度：O(max(m,n)) m,n分别是l1、l2的长度。
+     * 空间复杂度：O(max(m,n)) + 2, 这里为了简化代码而添加了哑节点（增加了1的空间，另外1是由于进位而造成），否则要添加条件判断来初始化第一个节点。
+     */
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode rt = new ListNode(0);
         ListNode l3 = rt;
@@ -66,12 +70,8 @@ public class AddTwoNumbers {
             l3 = index;
 
             // 处理进位
-            if (index.val >= 10) {
-                index.val = index.val % 10;
-                carry = 1;
-            } else {
-                carry = 0;
-            }
+            carry = index.val / 10;
+            index.val = index.val % 10;
         }
         return rt.next;
     }
