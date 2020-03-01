@@ -1,12 +1,12 @@
 package com.lzl.leetcode.stack;
 
+import java.util.Stack;
+
 /**
- * 使用数组构造
- *
  * @auther: marco.li
  * @date: Created in 2020/3/1
  */
-public class MinStack3 {
+public class MinStack4 {
 
     /**
      * 设计一个支持 push，pop，top 操作，并能在常数时间内检索到最小元素的栈。
@@ -30,59 +30,45 @@ public class MinStack3 {
      * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
      */
 
-    private Integer[] array;
 
-    private int index;
+    private Stack<Integer> stack;
 
-
-    private static int APPEND_SIZE = 1023;
+    private Stack<Integer> minStack;
 
     /**
      * initialize your data structure here.
      */
-    public MinStack3() {
-        array = new Integer[APPEND_SIZE];
+    public MinStack4() {
+        stack = new Stack();
+        minStack = new Stack();
     }
 
     public void push(int x) {
-        // 扩展数组
-        malloc();
-        array[index++] = x;
+        if (minStack.empty()) {
+            minStack.push(x);
+        } else if (x <= minStack.peek()) {
+            minStack.push(x);
+        }
+        stack.push(x);
     }
 
     public void pop() {
-        index--;
+        if (stack.peek().equals(minStack.peek())) {
+            minStack.pop();
+        }
+        stack.pop();
     }
 
     public Integer top() {
-        if(index == 0){
-            return null;
-        }
-        return array[index-1];
+        return stack.peek();
     }
 
     public int getMin() {
-        Integer min = array[0];
-        for(int i=1; i<index; i++){
-            if(array[i] < min) min = array[i];
-        }
-       return min;
-    }
-
-    private void malloc(){
-        if(index >= array.length){
-            Integer[] array2 = new Integer[array.length + APPEND_SIZE];
-            // copy
-            for(int i=0; i< array.length; i++){
-                array2[i] = array[i];
-            }
-            // swap
-            array = array2;
-        }
+        return minStack.peek();
     }
 
     public static void main(String[] args) {
-        MinStack3 minStack = new MinStack3();
+        MinStack4 minStack = new MinStack4();
         minStack.push(-2);
         minStack.push(0);
         minStack.push(-3);

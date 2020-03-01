@@ -1,5 +1,7 @@
 package com.lzl.leetcode.stack;
 
+import org.openjdk.jol.info.ClassLayout;
+
 /**
  * 使用数组构造
  *
@@ -39,7 +41,10 @@ public class MinStack2 {
 
     private int mIndex;
 
-    private static int APPEND_SIZE = 10;
+    /**
+     *
+     */
+    private static int APPEND_SIZE = 1024;
 
     /**
      * initialize your data structure here.
@@ -110,5 +115,7 @@ public class MinStack2 {
         System.out.println(minStack.top());
         //--> 返回 -2.
         System.out.println(minStack.getMin());
+        System.out.println(ClassLayout.parseInstance(minStack).toPrintable());
+        System.out.println(ClassLayout.parseInstance(minStack.array).toPrintable());
     }
 }
