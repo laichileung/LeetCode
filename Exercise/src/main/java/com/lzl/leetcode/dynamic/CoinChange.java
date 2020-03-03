@@ -9,6 +9,11 @@ import java.util.Arrays;
 public class CoinChange {
 
     /**
+     * 优秀解题
+     * https://leetcode-cn.com/problems/coin-change/solution/dong-tai-gui-hua-tao-lu-xiang-jie-by-wei-lai-bu-ke/
+     */
+
+    /**
      * 给定不同面额的硬币 coins 和一个总金额 amount。编写一个函数来计算可以凑成总金额所需的最少的硬币个数。如果没有任何一种硬币组合能组成总金额，返回 -1。
      * <p>
      * 示例 1:
