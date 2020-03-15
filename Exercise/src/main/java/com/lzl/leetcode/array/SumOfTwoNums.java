@@ -87,4 +87,23 @@ public class SumOfTwoNums {
         throw new IllegalArgumentException("numbers not found");
     }
 
+    /**
+     * 数组升序排列
+     */
+    public int[] twoSum(int[] numbers, int target) {
+        int i = 0;
+        int j = numbers.length - 1;
+
+        for (; i < j; ) {
+            if (target == numbers[i] + numbers[j]) {
+                return new int[]{i + 1, j + 1};
+            } else if (target > numbers[i] + numbers[j]) {
+                i++;
+            } else if (target < numbers[i] + numbers[j]) {
+                j--;
+            }
+        }
+        throw new IllegalArgumentException("numbers not found");
+    }
+
 }
