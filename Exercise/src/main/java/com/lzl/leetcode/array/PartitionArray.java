@@ -1,5 +1,8 @@
 package com.lzl.leetcode.array;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 /**
  * @auther: marco.li
  * @date: Created in 2020/3/11

@@ -61,12 +61,15 @@ public class CoinChange2 {
         return cache[amount];
     }
 
+
     public static void main(String[] args) {
         CoinChange2 coinChange = new CoinChange2();
         int[] coins = new int[]{1,2,5};
         int count = coinChange.coinChange(coins, 11);
         System.out.println(count);
     }
+
+
 
 
 }
